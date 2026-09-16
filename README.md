@@ -19,11 +19,6 @@ A full-stack web application designed to facilitate online bidding and auction m
 2. Navigate to the project directory.
 3. Install the required dependencies:
 bash
-   pip install -r requirements.txt
+  ``` pip install -r requirements.txt ```
 4. Run the application:
-python app.py
-
-
-
-
-   ```bas
+```python app.py```
