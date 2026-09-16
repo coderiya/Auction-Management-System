@@ -1,0 +1,13 @@
+ER Diagram Explanation:
+
+| Relationship         | Type                   | Notes                                                                      |
+| -------------------- | ---------------------- | -------------------------------------------------------------------------- |
+| User -> UserWishlist  | 1:N                    | A user can have multiple wishlist entries                                  |
+| Bid -> BidderHistory  | 1:N                    | Each bid can have multiple bidder histories                                |
+| User -> BidderHistory | 1:N                    | Each user can place multiple bids                                          |
+| Bid -> BidStatus      | 1:1 or 1:N             | Each bid has a status record                                               |
+| User <-> Bid           | M:N (via UserWishlist) | Users can wishlist multiple bids; bids can be wishlisted by multiple users |
+
+- A User can have more than one item in wishlist
+- A created auction/bid can have more than one quotes can be made by a singkle or multiple user, which is stored in bidder history table
+- A User can create more than one bid and can quote more than once for more than one bid
