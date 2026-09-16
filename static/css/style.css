@@ -1,0 +1,323 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/*****  Navbar *****/
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr; /* logo | search (big) | links */
+  align-items: center;
+  background: #1a237e; /* deep navy blue */
+  color: white;
+  padding: 12px 24px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Centered Long Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  max-width: 600px; /* longer */
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.search-bar input {
+  border: none;
+  padding: 10px 14px;
+  outline: none;
+  font-size: 15px;
+  flex: 1;
+}
+
+.search-bar button {
+  background: #ffb300;  /* golden yellow */
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
+
+/* Links on right */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding-bottom: 4px;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.nav-links a.active {
+  border-bottom: 2px solid #ffb300;
+  color: #ffb300;
+}
+
+.nav-links a:hover {
+  color: #ffb300;
+}
+
+/*****  Hero *****/
+.hero {
+  background: #e8eaf6; /* soft light background */
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #1a237e;
+}
+
+.hero p {
+  font-size: 16px;
+  color: #444;
+  margin: 8px 0 20px;
+}
+
+.cta-btn {
+  background: #ffb300;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cta-btn:hover {
+  background: #e6a000;
+}
+
+/*****  Dashboard *****/
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  margin-left: 0;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card i {
+  font-size: 32px;
+  color: #1a237e;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1a237e;
+}
+
+/***** Categories *****/
+.categories + h3,
+h3 + .categories,
+h3 {
+  padding-left: 30px;
+}
+
+.category-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+
+.category-card {
+  flex: 1 1 20%;
+  min-width: 150px;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+.category-card:hover {
+  transform: translateY(-3px);
+}
+
+.category-card * {
+  pointer-events: none;
+}
+
+.category-card {
+  pointer-events: auto;
+}
+
+/* Cat Emoji Image */
+.emoji-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+
+/***** Recently Placed Auctions *****/
+.auction-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.auction-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.auction-card {
+  flex: 0 0 280px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.auction-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Top section (title + tag) */
+.auction-top {
+  position: relative;
+  background: linear-gradient(180deg, #6f59ff, #8b75ff);
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+}
+.auction-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+.auction-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Bottom details */
+.auction-body {
+  padding: 15px;
+}
+.auction-desc {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+.auction-price {
+  font-weight: 700;
+  color: #c0392b;
+  font-size: 20px;
+}
+.auction-bids,
+.auction-time {
+  color: #777;
+  font-size: 14px;
+}
+.auction-bids {
+  margin-bottom: 6px;
+}
+
+
+/* View all button below recently placed bids*/
+.auction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-all-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-all-btn:hover {
+  background-color: #0056b3;
+}
+.auction-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1a237e;
+}
+
+/* Bid Page Styles */
+.bid-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  background: #ffb300;   /* Gold theme color */
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bid-btn:hover {
+  background: #e6a000;   /* Darker gold */
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuyMe Auctions</title>
+  <link rel="stylesheet" href="./../static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">BuyMe</div>
+
+    <!-- Center Search -->
+    <div class="search-bar">
+      <input type="text" id="searchBox" placeholder="Search auctions, products...">
+      <button id="searchBtn"><i class="fa fa-search"></i></button>
+    </div>
+
+    <!-- Links on the right -->
+    <ul class="nav-links">
+      <li><a href="home" class="active">Home</a></li>
+      <li><a href="wishlist" onclick="window.location.href='wishlist'">Wishlist</a></li>
+      <li><a href="profile">Profile</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Strip -->
+  <header class="hero">
+    <h1>Welcome to BuyMe  </h1>
+    <p>Bid. Win. Own what you love.</p>
+    <button onclick="window.location.href='createBid'" class="cta-btn">Start Bidding</button>
+    <button onclick="window.location.href='viewRecentQuotes'" class="cta-btn">View Quotes</button>
+
+  </header>
+
+  <!-- Dashboard -->
+  <section class="dashboard">
+    <div class="card">
+      <i class="fa-solid fa-gavel"></i>
+      <h3>Active Bids</h3>
+      <h2 id="activeBids">0</h2>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-receipt"></i>
+      <h3>Purchase History</h3>
+      <h2 id="purchaseHistory">0</h2>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-eye"></i>
+      <h3>Watching</h3>
+      <h2 id="watching">0</h2>
+    </div>
+  </section>
+
+  <!-- Category -->
+  <div class="category-container">
+  <h3>Browse Categories</h3>
+  <div id="category-panel" class="category-scroll"></div>
+</div>
+
+
+<!-- Recently Placed Auctions -->
+<div class="auction-section">
+  <div class="auction-header">
+    <h3>Recently Auctioned Items</h3>
+    <button onclick="window.location.href='viewRecentBids'" id="viewAllBtn" class="view-all-btn" >View All →</button>
+  </div>
+  <div id="auction-panel" class="auction-scroll"></div>
+</div>
+
+
+  <!-- <script src="../static/js/app.js"></script> -->
+  <script type="module">
+    import { Home } from "../static/js/app.js";
+    
+    const home = new Home();
+    home.loadStats();
+    home.loadCat();
+    home.loadRecentAuctions();
+  </script>
+</body>
+</html>

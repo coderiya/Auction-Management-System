@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Create Listing</title>
+  <link rel="stylesheet" href="./../static/css/create_bid.css">
+</head>
+
+<body>
+  <div class="breadcrumb">
+    <a href="selling.html" class="breadcrumb-link">Selling</a>
+    <span class="breadcrumb-separator">›</span>
+    <span class="breadcrumb-current">Create Listing</span>
+  </div>
+
+
+  <div class="create-listing-container">
+    <h2>List an item for sale</h2>
+
+    <!-- Photos -->
+    <section>
+      <h4>Photos</h4>
+      <div class="photo-upload" id="photoUpload">
+        <p>Add up to 12 photos</p>
+        <small>Drag and drop, or click to add photos</small>
+        <input type="file" id="photoInput" accept="image/*" multiple>
+      </div>
+      <div id="photoPreview"></div>
+    </section>
+
+    <!-- Title and Category -->
+    <section>
+      <h4>Title and Category</h4>
+      <label>Title *</label>
+      <input type="text" placeholder="What are you selling?" required>
+
+      <label>Category *</label>
+      <select required>
+        <option value="">Select a category</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Home & Garden</option>
+        <option>Sports</option>
+      </select>
+    </section>
+
+    <!-- Item Details -->
+    <section>
+      <h4>Item Details</h4>
+      <div class="row">
+        <div class="col">
+          <label>Condition *</label>
+          <select required>
+            <option>New</option>
+            <option>Used - Like New</option>
+            <option>Used - Good</option>
+            <option>Used - Acceptable</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Brand</label>
+          <input type="text" placeholder="Enter brand name">
+        </div>
+      </div>
+
+      <label>Description *</label>
+      <textarea placeholder="Describe your item's condition, features, and any flaws" required></textarea>
+    </section>
+
+    <!-- Pricing and Duration -->
+    <section>
+      <h4>Pricing</h4>
+      <div class="row">
+        <div class="col">
+          <label>Starting Price *</label>
+          <input type="number" min="0.01" step="0.01" placeholder="0.99" required>
+        </div>
+        <!-- <div class="col">
+          <label>Reserve Price (optional)</label>
+          <input type="number" min="0.01" step="0.01" placeholder="Minimum you'll accept">
+        </div> -->
+      </div>
+
+      <!-- <div class="row">
+        <div class="col">
+          <label>Duration *</label>
+          <select required>
+            <option>1 day</option>
+            <option>3 days</option>
+            <option>5 days</option>
+            <option>7 days</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Buy It Now (optional)</label>
+          <input type="number" min="0.01" step="0.01" placeholder="Fixed price option">
+        </div>
+      </div> -->
+    </section>
+
+    <!-- Shipping -->
+    <!-- <section>
+      <h4>Shipping</h4>
+      <div class="row">
+        <div class="col">
+          <label>Shipping cost *</label>
+          <select required>
+            <option>Free shipping</option>
+            <option>Flat rate</option>
+            <option>Calculated at checkout</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Handling time</label>
+          <select>
+            <option>1 business day</option>
+            <option>2 business days</option>
+            <option>3 business days</option>
+          </select>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Buttons -->
+    <div class="button-group">
+      <!-- <button class="btn-secondary">Save Draft</button> -->
+      <button class="btn-secondary">Cancel</button>
+      <button class="btn-primary" onclick="create_bid.listItem()">List Item</button>
+    </div>
+  </div>
+
+  <script src="../static/js/create_bid.js"></script>
+
+  <script type="module">
+    import { Create_bid } from '../static/js/create_bid.js';
+
+    const create_bid = new Create_bid();
+    window.create_bid = create_bid;
+
+  </script>
+</body>
+
+</html>

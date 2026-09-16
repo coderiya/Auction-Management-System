@@ -1,0 +1,83 @@
+/* Bid Page Container */
+.bid-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 20px;
+}
+
+/* Bid Card */
+.bid-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.bid-card h3 {
+    color: #1a237e;
+    margin-bottom: 15px;
+}
+
+.bid-info {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.input-label {
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    display: block;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    font-size: 16px;
+}
+
+.place-bid-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    background: #ffb300;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.place-bid-btn:hover {
+    background: #e6a000;
+}
+
+.response-msg {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 25px;
+    background: #1a237e;
+    color: white;
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 5px 0;
+}

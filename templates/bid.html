@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Place a Bid | BuyMe Auctions</title>
+
+    <!-- Correct CSS path -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bid.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body data-bidid="{{ bidId }}">   <!-- FIXED LINE -->
+
+
+
+<div class="bid-container">
+    <h2 class="title">Place Your Bid</h2>
+
+    <div class="bid-card">
+        <h3 id="bidName">Loading...</h3>
+
+        <p><strong>Current Price:</strong> $<span id="currentPrice">--</span></p>
+        <p><strong>Category:</strong> <span id="bidCat">--</span></p>
+        <p><strong>Ends In:</strong> <span id="timeLeft">--</span></p>
+
+        <label>Your Bid Amount ($)</label>
+        <input type="number" id="bidAmount" placeholder="Enter a higher bid">
+
+        <button id= 'submit' class="place-bid-btn">Submit Bid</button>
+
+        <p id="responseMessage"></p>
+    </div>
+</div>
+
+
+
+<!-- Correct JS path -->
+<!-- <script src="{{ url_for('static', filename='js/bid.js') }}"></script> -->
+
+<script type = 'module'>
+    import {BidDetails} from "../static/js/bid.js";
+    const bids = new BidDetails();
+    window.bids = bids;
+
+    document.getElementById('submit').addEventListener('click', async () => {
+        // const bidAmount = parseFloat(document.getElementById('bidAmount').value);
+        // const bidId = document.body.getAttribute('data-bidid');
+
+        // const response = await bids.placeBid(bidId, bidAmount);
+        // const responseMessage = document.getElementById('responseMessage');
+
+        // if (response.success) {
+        //     responseMessage.style.color = 'green';
+        //     responseMessage.textContent = 'Bid placed successfully!';
+        //     bids.loadBidDetails(bidId);  // Refresh bid details
+        // } else {
+        //     responseMessage.style.color = 'red';
+        //     responseMessage.textContent = `Error: ${response.message}`;
+        // }
+        await bids.subDet();
+    });
+    window.onload = async () => {
+          await bids.loadBidDetails();
+        //   await Bids.fetchBid();
+    };
+</script>
+</body>
+</html>

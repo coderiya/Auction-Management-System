@@ -1,0 +1,149 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 30px;
+}
+
+.create-listing-container {
+  background: #fff;
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Upload */
+.photo-upload {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+}
+.photo-upload input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#photoPreview img {
+  width: 80px;
+  height: 80px;
+  margin: 8px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Two-column layout */
+.row {
+  display: flex;
+  gap: 20px;
+}
+.col {
+  flex: 1;
+}
+
+.button-group {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: #3b6dfc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: #eee;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #2f5fe0;
+}
+.btn-secondary:hover {
+  background: #ddd;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.breadcrumb-link {
+  color: #3b6dfc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 6px;
+  color: #888;
+}
+
+.breadcrumb-current {
+  color: #555;
+  font-weight: 500;
+}

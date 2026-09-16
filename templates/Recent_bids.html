@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Auctions</title>
+  <link rel="stylesheet" href="./../static/css/list.css">
+</head>
+
+<body>
+  <h2>All Auctions</h2>
+
+    <div class="controls">
+        <input type="text" id="searchBox" placeholder="Search by name or description..." />
+
+        <select id="categoryFilter">
+            <option value="">All Categories</option>
+        </select>
+
+        <select id="sortSelect">
+            <option value="CREATED_AT">Sort by Recently Added</option>
+            <option value="BID_START_DATE">Sort by Bid start date</option>
+            <option value="BID_NAME">Sort by Name</option>
+            <option value="STATUS">Sort by Bid Status</option>
+        </select>
+
+    </div>
+
+    <div id="itemsContainer" class="listing-list"></div>
+
+    <div class="pagination">
+        <button id="prevButton" class="page-btn">&lt;</button>
+        <span id="pageNumber">1</span>
+        <button id="nextButton" class="page-btn">&gt;</button>
+    </div>
+
+  <script type="module">
+    import { All_Listings } from "../static/js/all_listings.js";
+    
+    const ALL_LISTINGS = new All_Listings();
+    window.ALL_LISTINGS = ALL_LISTINGS;
+
+    // SORT CHANGE
+        document.getElementById("sortSelect").onchange = (e) => {
+            ALL_LISTINGS.currentSort = e.target.value;
+            ALL_LISTINGS.currentPage = 1;
+            ALL_LISTINGS.loadRecentBidListings();
+        };
+
+        // CATEGORY CHANGE
+        document.getElementById("categoryFilter").onchange = (e) => {
+            ALL_LISTINGS.currentCategory = e.target.value;
+            ALL_LISTINGS.currentPage = 1;
+            ALL_LISTINGS.loadRecentBidListings();
+        };
+
+        // SEARCH CHANGE
+        document.getElementById("searchBox").onkeyup = (e) => {
+            ALL_LISTINGS.currentSearch = e.target.value.trim();
+            ALL_LISTINGS.currentPage = 1;
+            ALL_LISTINGS.loadRecentBidListings();
+        };
+
+        // PAGINATION
+        document.getElementById("prevButton").onclick = () => {
+            if (ALL_LISTINGS.currentPage > 1) {
+               ALL_LISTINGS.skip -= ALL_LISTINGS.limit
+                ALL_LISTINGS.currentPage--;
+                ALL_LISTINGS.loadRecentBidListings();
+            }
+        };
+
+        document.getElementById("nextButton").onclick = () => {
+          console.log('ALL_LISTINGS - ', ALL_LISTINGS)
+            const maxPage = Math.ceil(ALL_LISTINGS.totalRecords / ALL_LISTINGS.limit);
+            console.log('maxPagemaxPage - ', maxPage)
+            if (ALL_LISTINGS.currentPage < maxPage) {
+                ALL_LISTINGS.skip += ALL_LISTINGS.limit
+                ALL_LISTINGS.currentPage++;
+                ALL_LISTINGS.loadRecentBidListings();
+            }
+        };
+
+        // INITIAL LOAD
+        window.onload = async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedCategoryCode = urlParams.get("category");
+            const categoryName = urlParams.get("name");
+            await ALL_LISTINGS.loadCategories();
+            console.log('selectedCat: ', selectedCategoryCode)
+            if (selectedCategoryCode) {
+              ALL_LISTINGS.currentCategory = selectedCategoryCode;
+              document.getElementById("categoryFilter").value = selectedCategoryCode;
+            }
+            await ALL_LISTINGS.loadRecentBidListings();
+        };
+  </script>
+</body>
+
+</html>
